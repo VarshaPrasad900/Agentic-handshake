@@ -1,16 +1,51 @@
-# React + Vite
+Agentic Handshake
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Coordination Primitive for Human-Agent Collaboration
 
-Currently, two official plugins are available:
+Built for the PL_Genesis: Frontiers of Collaboration Hackathon.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The Vision-
 
-## React Compiler
+"Agentic Handshake" is a decentralized protocol that prevents AI agent failure by creating a seamless, verifiable "handover" to human experts. When an autonomous agent (DeFi bot, Medical AI, or Drone) hits an edge case, it issues a cryptographic "Help Wanted" bounty. A human expert resolves the deadlock, signs the transaction, and the interaction is archived to Filecoin to train the next generation of models.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+Features-
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-Mission Control Dashboard: Real-time monitoring of autonomous fleets.
+
+-Dynamic Intervention Hub: Interactive modal system for human-in-the-loop (HITL) overrides.
+
+-Sovereign Ledger: Automated mock-generation of CIDs (Content IDs) for decentralized storage.
+
+-Reward System: Simulated FIL (Filecoin) payouts for human cognitive assistance.
+
+
+Tech Stack-
+
+-Frontend: React + Vite
+
+-Styling: Tailwind CSS v4
+
+-Icons: Lucide React
+
+-Coordination Layer: Simulated Web3 Handshake Protocol
+
+-Storage Layer: Simulated Filecoin/IPFS integration
+
+
+Local Setup-
+
+Clone the repository:
+git clone https://github.com/VarshaPrasad900/agentic-handshake.git
+
+
+Install dependencies:
+npm install
+
+Start the dev server:
+npm run dev
+
+
+License-
+
+This project is licensed under the MIT License - see the LICENSE file for details.

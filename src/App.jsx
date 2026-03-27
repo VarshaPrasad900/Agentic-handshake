@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useAccount } from 'wagmi';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import {
   Terminal,
   Activity,
@@ -31,6 +33,7 @@ const uptimeData = Array.from({ length: 24 }, (_, i) => {
 });
 
 const App = () => {
+  const { isConnected } = useAccount();
   const [agents, setAgents] = useState(INITIAL_AGENTS);
   const [activeIntervention, setActiveIntervention] = useState(null);
   const [walletBalance, setWalletBalance] = useState(124.50);
@@ -94,12 +97,7 @@ const App = () => {
               <Database className="w-4 h-4 text-emerald-500" />
               <span className="text-xs font-mono text-slate-400">FILECOIN: CONNECTED</span>
             </div>
-            <button
-              onClick={() => setWalletConnected(true)}
-              className={`px-4 py-2 rounded-lg font-bold text-sm transition-all shadow-lg ${walletConnected ? 'bg-emerald-600 text-white shadow-emerald-600/20' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-600/20'}`}
-            >
-              {walletConnected ? 'Connected' : 'Connect Wallet'}
-            </button>
+            <ConnectButton />
             <div className="flex items-center gap-3 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-lg">
               <span className="text-xs text-blue-400 font-medium uppercase tracking-wider">Rewards</span>
               <span className="text-sm font-mono font-bold text-white">{walletBalance.toFixed(2)} FIL</span>
@@ -108,7 +106,7 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <main className="max-w-7xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-screen">
 
         {/* Left Column: Active Agents */}
         <section className="lg:col-span-8 space-y-6">
@@ -182,7 +180,7 @@ const App = () => {
         </section>
 
         {/* Right Column: Global Ledger (Web3 Feed) */}
-        <aside className="lg:col-span-4 space-y-6">
+        <aside className="lg:col-span-4 flex flex-col gap-6">
           <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 flex flex-col h-full overflow-hidden">
             <h2 className="text-lg font-semibold flex items-center gap-2 mb-4">
               <Lock className="w-5 h-5 text-emerald-500" />
@@ -226,12 +224,12 @@ const App = () => {
           </div>
 
           {/* Agent Uptime Chart */}
-          <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6">
-            <h2 className="text-lg font-semibold flex items-center gap-2 mb-4">
+          <div className="bg-slate-900 rounded-2xl border border-slate-800 p-6 flex flex-col flex-1 min-h-96">
+            <h2 className="text-lg font-semibold flex items-center gap-2 mb-4 shrink-0">
               <Activity className="w-5 h-5 text-blue-500" />
               Agent Uptime (24h)
             </h2>
-            <ResponsiveContainer width="100%" height={200}>
+            <ResponsiveContainer width="100%" height="100%">
               <LineChart data={uptimeData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis dataKey="time" stroke="#9ca3af" fontSize={10} />
